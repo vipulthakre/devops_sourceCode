@@ -7,11 +7,7 @@ pipeline{
     stage('Clone Appplication Source code'){
       steps{
         script{
-          dir('Devopsdir'){
             git branch: 'main', credentialsId: 'gitcred', url: 'https://github.com/vipulthakre/testproject.git'
-            sh "cp -r * ./.."
-            sh "cd ./../ ;rm -rf Devopsdir"
-          }
         }
       }
     }
@@ -19,8 +15,6 @@ pipeline{
       steps{
         script{
           git branch: 'main', credentialsId: 'gitcred', url: 'https://github.com/vipulthakre/devops_sourceCode.git'
-          sh "cp -r * ./.."
-          sh "cd ./../ ;rm -rf Devopsdir"
         }
       }
     }
