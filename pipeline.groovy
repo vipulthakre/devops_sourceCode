@@ -3,5 +3,5 @@ def sast(){
 }
 def build(){
   sh "chmod +x -R ${env.WORKSPACE}"
-  
+  sh "/var/lib/jenkins/workspace/${workspaceName}/build_app.sh
 }
