@@ -1,0 +1,26 @@
+pipeline{
+  agent any
+  environment{
+    def workspaceName = sh(script: "basename ${env.WORKSPACE}", returnStdout:true).trim()
+  }
+  stages{
+    stage('Clone Appplication Source code'){
+      steps{
+        script{
+          dir('Devopsdir'){
+            git branch: 'main', credentialsId: 'gitcred', url: 'https://github.com/vipulthakre/testproject.git'
+            sh "cp -r * ./.."
+            sh "cd ./../ ;rm -rf Devopsdir"
+          }
+        }
+      }
+    }
+    stage('Clone Devops code'){
+      steps{
+        script{
+          
+        }
+      }
+    }
+  }
+}
