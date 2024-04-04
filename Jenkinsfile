@@ -7,7 +7,7 @@ pipeline{
     stage('Test'){
       steps{
         script{
-            def pipeline = load 'pipeline.groovy'
+            def pipeline = load '/${env.WORKSPACE}/pipeline.groovy'
             pipeline.test()
         }
       }
