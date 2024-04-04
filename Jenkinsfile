@@ -1,4 +1,4 @@
-pipeline{
+ pipeline{
   agent any
   /*environment{
     def workspaceName = sh(script: "basename ${env.WORKSPACE}", returnStdout:true).trim()
@@ -7,7 +7,8 @@ pipeline{
     stage('Test'){
       steps{
         script{
-          echo "Test stage"
+          def ab = load 'pipeline.groovy'
+          ab.test()
         }
       }
     }
