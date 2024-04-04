@@ -1,10 +1,4 @@
-def sast(){
-  echo "Checkmarx stage"
+def test(){
+  echo "test stage"
 }
-def build(){
-  sh "chmod +x -R ${env.WORKSPACE}"
-  sh "/var/lib/jenkins/workspace/${workspaceName}/build_app.sh ${workspaceName}
-}
-def uploadArtfactInJfrog(){
-  echo "Jfrog Stage"
-}
+
