@@ -1,16 +1,20 @@
- pipeline{
-  agent any
-  /*environment{
-    def workspaceName = sh(script: "basename ${env.WORKSPACE}", returnStdout:true).trim()
-  }*/
-  stages{
-    stage('Test'){
-      steps{
-        script{
-          def ab = load 'pipeline.groovy'
-          ab.test()
+// Jenkinsfile
+
+// Load the functions from MyFunctions.groovy
+def myFunctions = load 'MyFunctions.groovy'
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('Example') {
+            steps {
+                script {
+                    // Call the function from MyFunctions.groovy
+                    myFunctions.sayHello()
+                }
+            }
         }
-      }
     }
-  }
 }
+
